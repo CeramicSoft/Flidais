@@ -1,0 +1,40 @@
+﻿<Window x:Class="Flidais.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Flidais"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+		Loaded="WindowLoaded">
+	<StackPanel Orientation="Vertical">
+		<CheckBox Content="Dark Mode" x:Name="DarkModeCheckBox" Checked="DarkMode" Unchecked="LightMode" Width="80px" HorizontalAlignment="Left"/>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+			<Label Content="Media Type"/>
+			<ComboBox Name="MediaTypeComboBox" SelectionChanged="OnMediaTypeChange"/>
+			<Label Content="File Extension"/>
+			<ListBox Name="FileExtensionListBox" SelectionMode="Multiple"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+			<Label Content="from"/>
+			<TextBox x:Name="PathFromTextBox" MinWidth="100"/>
+			<Button Content="Browse" x:Name="PathFromBrowseButton" Click="FromBrowseClick"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+			<Label Content="to"/>
+			<TextBox x:Name="PathToTextBox" MinWidth="100"/>
+			<Button Content="Browse" x:Name="PathToBrowseButton" Click="ToBrowseClick"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+			<Button Content="Copy Data" x:Name="FileCopyButton" Click="FileCopyButtonClick"/>
+			<Button Content="Move Data" x:Name="FileTransferButton" Click="FileTransferButtonClick"/>
+			<Button Content="Delete Data" x:Name="FileDeleteButton" Click="FileDeleteButtonClick"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+			<CheckBox x:Name="ZipCheckBox" Content="make a zip"/>
+			<TextBox x:Name="ZipName" MinWidth="100"/>
+		</StackPanel>
+		<Label x:Name="TotalMediaTransferedLabel"/>
+		<Label x:Name="TotalDataTransferedLabel"/>
+	</StackPanel>
+</Window>
