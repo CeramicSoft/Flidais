@@ -12,10 +12,10 @@ namespace Flidais.Helper
 				case long l when (l < 1024):
 					shortenedBytes = (int)bytes;
 					return $"{shortenedBytes} bytes";
-				case long l when (l < 1048576 && l > 1023):
+				case long l when (l < 1048576):
 					shortenedBytes = (int)bytes / 1024;
 					return $"{shortenedBytes} kb";
-				case long l when (l < 1073741824 && l > 1048575):
+				case long l when (l < 1073741824):
 					shortenedBytes += (int)bytes / 1048576;
 					return $"{shortenedBytes} mb";
 				case long l when (l > 1073741824):

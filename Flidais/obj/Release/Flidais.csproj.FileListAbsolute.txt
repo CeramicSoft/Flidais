@@ -1,0 +1,15 @@
+C:\CeramicSoft\Flidais\Flidais\bin\Release\Flidais.exe.config
+C:\CeramicSoft\Flidais\Flidais\bin\Release\Flidais.exe
+C:\CeramicSoft\Flidais\Flidais\bin\Release\Flidais.pdb
+C:\CeramicSoft\Flidais\Flidais\obj\Release\Flidais.csproj.AssemblyReference.cache
+C:\CeramicSoft\Flidais\Flidais\obj\Release\MainWindow.g.cs
+C:\CeramicSoft\Flidais\Flidais\obj\Release\App.g.cs
+C:\CeramicSoft\Flidais\Flidais\obj\Release\Flidais_MarkupCompile.cache
+C:\CeramicSoft\Flidais\Flidais\obj\Release\Flidais_MarkupCompile.lref
+C:\CeramicSoft\Flidais\Flidais\obj\Release\MainWindow.baml
+C:\CeramicSoft\Flidais\Flidais\obj\Release\Flidais.g.resources
+C:\CeramicSoft\Flidais\Flidais\obj\Release\Flidais.Properties.Resources.resources
+C:\CeramicSoft\Flidais\Flidais\obj\Release\Flidais.csproj.GenerateResource.cache
+C:\CeramicSoft\Flidais\Flidais\obj\Release\Flidais.csproj.CoreCompileInputs.cache
+C:\CeramicSoft\Flidais\Flidais\obj\Release\Flidais.exe
+C:\CeramicSoft\Flidais\Flidais\obj\Release\Flidais.pdb

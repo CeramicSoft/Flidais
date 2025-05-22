@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
+using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
@@ -107,41 +108,69 @@ namespace Flidais
 		private void ProcessFiles(Action<string, string> action, ProcessTypes processTypes)
 		{
 			string errorMessage = "";
+
+			//checks if the end location exists
 			if (!Directory.Exists(PathToTextBox.Text) && processTypes != ProcessTypes.Delete)
 			{
 				errorMessage += "Path to is incorrect." + Environment.NewLine;
 			}
+
+			//checks if the file origin exists
 			if (!Directory.Exists(PathFromTextBox.Text))
 			{
 				errorMessage += "Path from is incorrect." + Environment.NewLine;
 			}
+
+			//makes sure an extension is selected
 			if (FileExtensionListBox.SelectedItem == null)
 			{
 				errorMessage += "File extension is not selected." + Environment.NewLine;
 			}
+
+			//makes sure if zipping the zip file has a name
 			if (ZipCheckBox.IsChecked == true && ZipName.Text == "")
 			{
 				errorMessage += "Please enter a name for the zip file";
 			}
+
+			//runs the process
 			if (string.IsNullOrEmpty(errorMessage))
 			{
 				try
 				{
+					string finalPath;
+
+					//adds the zipname to the final path
+					if (ZipCheckBox.IsChecked == true)
+					{
+						finalPath = Path.Combine(PathToTextBox.Text, ZipName.Text);
+					}
+					else
+					{
+						finalPath = PathToTextBox.Text;
+					}
+
+					Directory.CreateDirectory(finalPath);
+
+					//applies the action to each file in directory
 					foreach (string extension in FileExtensionListBox.SelectedItems)
 					{
-						string finalPath = $"{PathToTextBox.Text}{Path.AltDirectorySeparatorChar}";
-						if (ZipCheckBox.IsChecked == true)
-						{
-							Directory.CreateDirectory($"{PathToTextBox.Text}{Path.AltDirectorySeparatorChar}{ZipName}");
-							finalPath += $"{ZipName}{Path.AltDirectorySeparatorChar}";
-							ScanFiles(PathFromTextBox.Text, finalPath, action, $"*{extension}");
-							ZipFile.CreateFromDirectory(finalPath, $"{finalPath}.zip");
-						}
-						else
-						{
-							ScanFiles(PathFromTextBox.Text, finalPath, action, $"*{extension}");
-						}
+						ScanFiles(PathFromTextBox.Text, finalPath, action, $"*{extension}");
 					}
+
+					//checks for repetitive media
+					if (ImageCheckCheckBox.IsChecked == true)
+					{
+						CheckRepetitvieMedia();
+					}
+
+					//zips the file
+					if (ZipCheckBox.IsChecked == true)
+					{
+						ZipFile.CreateFromDirectory(finalPath, $"{finalPath}.zip");
+						Directory.Delete(finalPath, true);
+					}
+
 					System.Windows.MessageBox.Show("File transfer complete");
 				}
 				catch (Exception ex)
@@ -153,6 +182,40 @@ namespace Flidais
 			{
 				System.Windows.MessageBox.Show(errorMessage);
 			}
+		}
+
+		private void CheckRepetitvieMedia(string file, string fileExtension)
+		{
+			Dictionary<string, byte[]> mediaHashes = new Dictionary<string, byte[]>();
+		}
+		private Dictionary<string, byte[]> GetHashesFromFolder(string file, string fileExtension)
+		{
+			IEnumerable<string> folders = Directory.EnumerateDirectories(file);
+			IEnumerable<string> files = Directory.GetFiles(file, fileExtension);
+			Dictionary<string, byte[]> mediaHashes = new Dictionary<string, byte[]>();
+			foreach (string folder in folders)
+			{
+				Dictionary<string, byte[]> hashCollection = GetHashesFromFolder(folder, fileExtension);
+				foreach (KeyValuePair<string, byte[]> hash in hashCollection)
+				{
+					mediaHashes.Add(hash.Key, hash.Value);
+				}
+			}
+			foreach (string media in files)
+			{
+				mediaHashes.Add(media, getHashFromPath(media));
+			}
+			return mediaHashes;
+		}
+		private byte[] getHashFromPath(string path)
+		{
+			FileStream fileStream = File.OpenRead(path);
+			SHA256 hash = SHA256.Create();
+			return hash.ComputeHash(fileStream);
+		}
+		private void IsImageIdentical(KeyValuePair<string, byte[]> media1, KeyValuePair<string, byte[]> media2)
+		{
+
 		}
 		/// <summary>
 		/// scans files and applies the action determined (copy/move/delete)
@@ -166,8 +229,7 @@ namespace Flidais
 
 			foreach (string media in medias)
 			{
-				string destination = $"{finalDestination}{Path.GetFileName(media)}"
-					.Replace('\\', '/');
+				string destination = Path.Combine(finalDestination, Path.GetFileName(media));
 				TotalMedia++;
 				FileInfo mediaData = new FileInfo(media);
 				TotalData += mediaData.Length;

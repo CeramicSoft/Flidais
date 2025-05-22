@@ -1,12 +1,69 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\CeramicSoft\\Flidais\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C33556EA-F9A8-4758-91DC-531FC7B329F9}|Flidais\\Flidais.csproj|c:\\ceramicsoft\\flidais\\flidais\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C33556EA-F9A8-4758-91DC-531FC7B329F9}|Flidais\\Flidais.csproj|solutionrelative:flidais\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C33556EA-F9A8-4758-91DC-531FC7B329F9}|Flidais\\Flidais.csproj|C:\\CeramicSoft\\Flidais\\flidais\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C33556EA-F9A8-4758-91DC-531FC7B329F9}|Flidais\\Flidais.csproj|solutionrelative:flidais\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C33556EA-F9A8-4758-91DC-531FC7B329F9}|Flidais\\Flidais.csproj|C:\\CeramicSoft\\Flidais\\flidais\\helper\\bytesizehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C33556EA-F9A8-4758-91DC-531FC7B329F9}|Flidais\\Flidais.csproj|solutionrelative:flidais\\helper\\bytesizehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ByteSizeHelper.cs",
+              "DocumentMoniker": "C:\\CeramicSoft\\Flidais\\Flidais\\Helper\\ByteSizeHelper.cs",
+              "RelativeDocumentMoniker": "Flidais\\Helper\\ByteSizeHelper.cs",
+              "ToolTip": "C:\\CeramicSoft\\Flidais\\Flidais\\Helper\\ByteSizeHelper.cs",
+              "RelativeToolTip": "Flidais\\Helper\\ByteSizeHelper.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T23:44:55.983Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\CeramicSoft\\Flidais\\Flidais\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Flidais\\MainWindow.xaml",
+              "ToolTip": "C:\\CeramicSoft\\Flidais\\Flidais\\MainWindow.xaml",
+              "RelativeToolTip": "Flidais\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-22T17:33:53.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\CeramicSoft\\Flidais\\Flidais\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Flidais\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\CeramicSoft\\Flidais\\Flidais\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Flidais\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAMQAAAAAAAAAAAAqwMgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T17:33:15.582Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

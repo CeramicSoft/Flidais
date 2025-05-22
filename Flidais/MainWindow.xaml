@@ -34,6 +34,7 @@
 			<CheckBox x:Name="ZipCheckBox" Content="make a zip"/>
 			<TextBox x:Name="ZipName" MinWidth="100"/>
 		</StackPanel>
+		<CheckBox x:Name="ImageCheckCheckBox" Content="Delete image copies"/>
 		<Label x:Name="TotalMediaTransferedLabel"/>
 		<Label x:Name="TotalDataTransferedLabel"/>
 	</StackPanel>
